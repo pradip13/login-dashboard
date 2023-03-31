@@ -4,11 +4,14 @@ const autoIncrement = require('mongoose-auto-increment');
 const userSchema = mongoose.Schema({
     name:String,
     email:String,
-    phone:String
+    phone:String,
+    password:String
 });
 
 autoIncrement.initialize(mongoose.connection);
-userSchema.plugin(autoIncrement.plugin,'user');
+userSchema.plugin(autoIncrement.plugin,'crud');
 
-const user = mongoose.model('user',userSchema);
-module.exports = user;
+const crud = mongoose.model('crud',userSchema);
+module.exports = crud;
+
+

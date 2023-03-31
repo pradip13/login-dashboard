@@ -17,7 +17,8 @@ margin:5% auto 0 auto;
 const defaultValue ={
   name:"",
   email:"",
-  phone:""
+  phone:"",
+  password:""
 }
 
 const AddUser = () => {
@@ -35,8 +36,8 @@ const AddUser = () => {
   const addUserDetails = async () => {
    await addUser(user);
    navigate('/all');
+}
 
-  }
   return (
     <div>
       <Container>
@@ -54,7 +55,11 @@ const AddUser = () => {
          <Input onChange={(e)=>onValueChange(e)} name="phone"/>
         </FormControl>
         <FormControl>
-        <Button variant="contained" onClick={()=> addUserDetails()}>Add User</Button>
+         <InputLabel>Password</InputLabel>
+         <Input onChange={(e)=>onValueChange(e)} name="password"/>
+        </FormControl>
+        <FormControl>
+        <Button style={{background:"red"}} onClick={()=> addUserDetails()}>Add User</Button>
         </FormControl>
         
       </Container>

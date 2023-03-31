@@ -18,7 +18,8 @@ margin:5% auto 0 auto;
 const defaultValue ={
   name:"",
   email:"",
-  phone:""
+  phone:"",
+  password:""
 }
 
 const EditUser = () => {
@@ -29,17 +30,17 @@ const EditUser = () => {
   const { id } = useParams();
 
   useEffect(()=>{
+    const loadUserDetails = async ()=>{
+      const response = await getUser(id);
+      // console.log(response)
+      setUser(response.data);
+      console.log((response.data));
+    }
     loadUserDetails();
 
   },[]);
 
-  const loadUserDetails = async ()=>{
-    const response = await getUser(id);
-    // console.log(response)
-    setUser(response.data);
-    console.log((response
-      .data));
-  }
+ 
   const onValueChange =(e)=>{
     // console.log(e.target.name, e.target.value)
     setUser({...user, [e.target.name] : e.target.value})
@@ -54,6 +55,7 @@ const EditUser = () => {
   }
   return (
     <div>
+
       <Container>
         <Typography variant='h4'>Edit User</Typography>
         <FormControl>
@@ -69,7 +71,11 @@ const EditUser = () => {
          <Input onChange={(e)=>onValueChange(e)} name="phone" value={user.phone}/>
         </FormControl>
         <FormControl>
-        <Button variant="contained" onClick={()=> editUserDetails()}>Edit User</Button>
+         <InputLabel>Password</InputLabel>
+         <Input onChange={(e)=>onValueChange(e)} name="phone" value={user.phone}/>
+        </FormControl>
+        <FormControl>
+        <Button style={{background:"red"}} onClick={()=> editUserDetails()}>Edit</Button>
         </FormControl>
         
       </Container>

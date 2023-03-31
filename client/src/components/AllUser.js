@@ -51,7 +51,7 @@ const AllUser = () => {
             <TableCell>NAME</TableCell>
             <TableCell>EMAIL</TableCell>
             <TableCell>PHONE</TableCell>
-            <TableCell></TableCell>
+            <TableCell>PASSWORD</TableCell>
             <TableCell></TableCell>
           </TRow>
 
@@ -65,9 +65,10 @@ const AllUser = () => {
                 <TableCell >{user.name}</TableCell>
                 <TableCell >{user.email}</TableCell>
                 <TableCell >{user.phone}</TableCell>
+                <TableCell >{user.password}</TableCell>
                 <TableCell >
-                  <Button variant='contained' style={{marginRight:10}} component={Link} to={`/edit/${user._id}`}>EDIT</Button>
-                  <Button variant='contained' color='secondary' onClick={()=> deleteUserDetails(user._id)}>DELETE</Button>
+                  <Button  style={{marginRight:10, background:"black"}} component={Link} to={`/edit/${user._id}`}>EDIT</Button>
+                  <Button style={{background:"black"}} color='secondary' onClick={()=> deleteUserDetails(user._id)}>DELETE</Button>
                 </TableCell>
               </TBody>
             ))

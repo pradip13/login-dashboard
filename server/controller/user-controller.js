@@ -56,6 +56,8 @@ const editUser = async (request,response)=>{
 
 }
 
+
+
 const deleteUser = async (request,response)=>{
   // let user = request.body;
   // const deleteUser = new User(user);
@@ -64,10 +66,12 @@ const deleteUser = async (request,response)=>{
     response.status(201).json({message:'user Deleted Successfully'})
   } catch (error) {
     response.status(404).json({message:error.message})
-    
-    
-  }
+ }
 
 }
+
+
+
+
 
 module.exports = {addUser,getUsers,getUser,editUser,deleteUser};
